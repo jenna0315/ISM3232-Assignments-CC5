@@ -9,3 +9,6 @@ const inventory = [
     
 { name: 'Mocha', price: 5, quantity: 4 }
 ];
+
+//Initialize orders array
+let orders = []
