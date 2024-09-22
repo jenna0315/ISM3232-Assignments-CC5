@@ -13,7 +13,7 @@ const inventory = [
 //Initialize orders array
 let orders = []
 
-//Create placeOrder function
+//Create placeOrder function//I know this part doesn't work but the rest of it should be correct
 function placeOrder (customerName,items){
     for (let item of order){
  inventory.find(items => items.name === items);
@@ -34,3 +34,8 @@ orders.push({customerName:'', items:[{name:'',quantity:''}],
 });
 }
 placeOrder(['Janet',{name:'Latte',quantity:2}])
+
+//Create CalculateOrderTotal function
+function calculateOrderTotal(order) {
+    return order.items.reduce((total, item) => total + item.price, 0);
+}
