@@ -15,7 +15,7 @@ let orders = []
 
 //Create placeOrder function//I know this part doesn't work but the rest of it should be correct
 function placeOrder (customerName,items){
-    for (let item of order){
+    for (let item of orders){
  inventory.find(items => items.name === items);
     if (!items)
         {console.log(`Invalid! Cannot Fullfill Order of ${customerName}`);
@@ -39,3 +39,16 @@ placeOrder(['Janet',{name:'Latte',quantity:2}])
 function calculateOrderTotal(order) {
     return order.items.reduce((total, item) => total + item.price, 0);
 }
+
+//Create completeOrder function
+function completeOrder(customerName, order) {
+    order.find(order => order.customerName === customerName);
+    
+    if (order) {
+        order.status = "Completed";
+        console.log(`Order for customer "${customerName}" has been marked as completed.`);
+    } else {
+        console.error(`Order for customer "${customerName}" not found.`);
+    }
+}
+
