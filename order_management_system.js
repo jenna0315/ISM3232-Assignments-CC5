@@ -52,3 +52,11 @@ function completeOrder(customerName, order) {
     }
 }
 
+//Create checkPendingOrders function
+function checkPendingOrders(orders) {
+    orders.forEach(order => {
+        if (order.status === "Pending") {
+            console.log(order);
+        }
+    });
+}
