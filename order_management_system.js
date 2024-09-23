@@ -43,7 +43,7 @@ function completeOrder(customerName, order) {
     order.find(order => order.customerName === customerName);
     if (order) {
         order.status = 'Completed';
-        console.log(`Order for "${customerName}" is complete.`);
+        { console.log(`Order for "${customerName}" is complete.`);
      else {
         console.error(`Order for "${customerName}" does not exist.`);
     }
