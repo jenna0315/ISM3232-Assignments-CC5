@@ -9,53 +9,51 @@ const inventory = [
     
 { name: 'Mocha', price: 5, quantity: 4 }
 ];
+console.log(inventory)
 
 //Initialize orders array
-let orders = []
+let orders = [];
 
-//Create placeOrder function//I know this part doesn't work but the rest of it should be correct
-function placeOrder (customerName,items){
-    for (let item of orders){
- inventory.find(items => items.name === items);
-    if (!items)
+//Create placeOrder function
+function placeOrder (customerName,orderedItems){
+    for (item of orderedItems){
+const product = inventory.find(product => product.name === item.name);
+    if (!product)
         {console.log(`Invalid! Cannot Fullfill Order of ${customerName}`);
         }
-
-    if (items.quantity>inventory.quantity)
+    if (product.quantity>inventory.quantity)
         {console.log(`Error Not Enough in Stock`);
         }
     }
-    for (let quantity of items)
-{inventory.find(items => items.name === items);;
-items.quanitity -= inventory.quantity;
-}
-orders.push({customerName:'', items:[{name:'',quantity:''}],
-    status:'Pending'
+const product = inventory.find(product => product.name === item.name);
+product.quanitity -= inventory.quantity;
+orders.push({customerName:customerName, itemsBought:orderedItems, status:'Pending'
 });
 }
-placeOrder(['Janet',{name:'Latte',quantity:2}])
+placeOrder('Janet',[{name:'Latte',quantity:2}])
+console.log(orders)
 
 //Create CalculateOrderTotal function
-function calculateOrderTotal(order) {
-    return order.items.reduce((total, item) => total + item.price, 0);
+function calculateOrderTotal(orders) {
+    return order.itemsPurchased.reduce((total, item) => total + item.price, 0);
 }
 
 //Create completeOrder function
 function completeOrder(customerName, order) {
     order.find(order => order.customerName === customerName);
-    
     if (order) {
-        order.status = "Completed";
-        console.log(`Order for customer "${customerName}" has been marked as completed.`);
-    } else {
-        console.error(`Order for customer "${customerName}" not found.`);
+        order.status = 'Completed';
+        console.log(`Order for "${customerName}" is complete.`);
+     else {
+        console.error(`Order for "${customerName}" does not exist.`);
     }
 }
+
 
 //Create checkPendingOrders function
 function checkPendingOrders(orders) {
     orders.forEach(order => {
-        if (order.status === "Pending") {
+        if (order.status === 'Pending') {
             console.log(order);
         }
     });
