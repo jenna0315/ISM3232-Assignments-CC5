@@ -44,7 +44,7 @@ function completeOrder(customerName, order) {
     if (order) {
         order.status = 'Completed';
         { console.log(`Order for "${customerName}" is complete.`);
-     else {
+        } else {
         console.error(`Order for "${customerName}" does not exist.`);
     }
 }
